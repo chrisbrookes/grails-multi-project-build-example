@@ -1,1 +1,1 @@
-include 'myapp', 'myplugin'
+include 'myapp', 'myplugin', 'dependant-project'

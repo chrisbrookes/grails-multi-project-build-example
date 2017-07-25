@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+    mavenCentral()
+}
+
+dependencies {
+    compile project(path: ':myapp', configuration: 'compile')
+}
+
+//noinspection GroovyAssignabilityCheck
+task checkConfig(dependsOn: [configurations.compile]) {
+    doFirst {
+        println "compile deps: ${ configurations.compile.collect { '\n' + it } }"
+    }
+}
